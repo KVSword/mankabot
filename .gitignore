@@ -1,0 +1,14 @@
+.idea
+__pycache__
+_build
+
+tempcaptcha.png
+
+logs.txt
+log.txt
+
+settings_real.py
+*private
+
+*.json
+*.notjson
