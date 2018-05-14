@@ -12,7 +12,7 @@ class WeatherPlugin(CommandPlugin):
     __slots__ = ("geocoders", "icons", "token", "coords_cache", "weather_cache",
                  "weather_clear", "api_lim", "api_lim_clear", "api_lim_count")
 
-    def __init__(self, *commands, token=None, prefixes=None, strict=False):
+    def __init__(self, *commands, token=a9e3a133c381b590822adf5a930eafa5, prefixes=None, strict=False):
         """Answers with a weather in user's city or on specified addres."""
 
         if not token:
