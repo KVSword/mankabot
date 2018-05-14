@@ -12,7 +12,7 @@ class WeatherPlugin(CommandPlugin):
     __slots__ = ("geocoders", "icons", "token", "coords_cache", "weather_cache",
                  "weather_clear", "api_lim", "api_lim_clear", "api_lim_count")
 
-    def __init__(self, *commands, token=a9e3a133c381b590822adf5a930eafa5, prefixes=None, strict=False):
+    def __init__(self, *commands, token=None, prefixes=None, strict=False):
         """Answers with a weather in user's city or on specified addres."""
 
         if not token:
@@ -56,7 +56,7 @@ class WeatherPlugin(CommandPlugin):
         if f"{result.latitude}_{result.longitude}" in self.weather_cache:
             return self.weather_cache[f"{result.latitude}_{result.longitude}"]
 
-        url = "https://api.darksky.net/forecast/{token}/{latitude},{longitude}?lang=ru&units=si&exclude=minutely,currently,alerts,flags"
+        url = "https://api.darksky.net/forecast/a9e3a133c381b590822adf5a930eafa5/37.8267,-122.4233?lang=ru&units=si&exclude=minutely,currently,alerts,flags"
 
         if self.api_lim_clear - time.time() <= 0:
             self.api_lim_clear = time.time() + 24 * 60 * 60
