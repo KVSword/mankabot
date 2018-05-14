@@ -17,7 +17,7 @@ Docs: http://docs.peewee-orm.com/en/latest/
 class PeeweePlugin(BasePlugin):
     __slots__ = ("database", "manager", "set_manager")
 
-    def __init__(self, dbhost, dbname, dbuser, dbpassword, dbport=None, custom_driver=None, set_manager=True, **kwargs):
+    def __init__(self, dbhost, dbname, dbuser, dbpassword, dbport=None, custom_driver=PostgreSQL, set_manager=True, **kwargs):
         """Adds self to messages and event's `data` field.
         Through this instance you can access peewee_async.Manager instance (data["peewee_async"].manager).
         This plugin should be included first!
