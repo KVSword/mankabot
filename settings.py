@@ -1,4 +1,3 @@
-class BaseSettings:
 ﻿class BaseSettings:
     # Заполнять ниже `BotSettings`
 
