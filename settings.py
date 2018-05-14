@@ -78,6 +78,7 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),  # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
+        WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         VoterPlugin(prefixes=prefixes),
         FacePlugin("сделай", prefixes=prefixes),
         SmileWritePlugin("смайлами", prefixes=prefixes),
