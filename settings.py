@@ -65,6 +65,7 @@ class BotSettings(BaseSettings):
     PLUGINS = (
         # Leave only "PostgreSQL" or "MySQL", host is adress of your database, port is a number
         # PeeweePlugin("host", "database's name", "user", "password", port, "PostgreSQL" or "MySQL"),
+        PeeweePlugin("127.0.0.1", "postgres", "postgres", "1236547890paveL", 5432, "PostgreSQL" or "MySQL"),
         AdminPlugin(prefixes=prefixes, admins=admins, setadmins=True),
         ChatMetaPlugin(),
 
@@ -78,6 +79,8 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),  # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
+        AzinoPlugin("азино", prefixes=prefixes),
+        DuelerPlugin(prefixes=prefixes),
         WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         VoterPlugin(prefixes=prefixes),
         FacePlugin("сделай", prefixes=prefixes),
