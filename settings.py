@@ -64,7 +64,7 @@ class BotSettings(BaseSettings):
 
     PLUGINS = (
         # Leave only "PostgreSQL" or "MySQL", host is adress of your database, port is a number
-        PeeweePlugin("host", "database's name", "user", "password", port, "PostgreSQL" or "MySQL"),
+        PeeweePlugin("host", "database's name", "user", "password", 5432, "PostgreSQL" or "MySQL"),
         AdminPlugin(prefixes=prefixes, admins=admins, setadmins=True),
         ChatMetaPlugin(),
 
