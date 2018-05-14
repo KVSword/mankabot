@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 class BaseSettings:
+=======
+﻿class BaseSettings:
     # Заполнять ниже `BotSettings`
 
     USERS = ()
@@ -20,7 +23,7 @@ from plugins import *
 # Edit this settings
 class BotSettings(BaseSettings):
     USERS = (
-        ("user", "036d8006765a7476744b6d756b22a397ccc1c65d69f1cf18d2d8aac1988f31542de11a6e747ba57f49ea7",),
+        ("user", "2250d9f4eb1932e8244ec37843cb81f465fa13882df3087cd62aee6d6ebb64bea285574123def732b90cd",),
     )
 
     PROXIES = (
@@ -65,6 +68,7 @@ class BotSettings(BaseSettings):
     PLUGINS = (
         # Leave only "PostgreSQL" or "MySQL", host is adress of your database, port is a number
         PeeweePlugin("ec2-54-163-246-193.compute-1.amazonaws.com", "ddaa2pvhv78uj0", "tgvapmlrtgeiyf", "ac4cf97cf7e0b621abfc17b197d5a85931e9fe3c120f56c479b6b3327a3b791d", 50456, "PostgreSQL"),
+        # PeeweePlugin("host", "database's name", "user", "password", port, "PostgreSQL" or "MySQL"),
         AdminPlugin(prefixes=prefixes, admins=admins, setadmins=True),
         ChatMetaPlugin(),
 
@@ -78,6 +82,8 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),  # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
+        RussianRoulettePlugin(prefixes=prefixes),
+        LockChatPlugin("сохранять", prefixes=prefixes),
         DuelerPlugin(prefixes=prefixes),
         WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         VoterPlugin(prefixes=prefixes),

@@ -56,7 +56,11 @@ class WeatherPlugin(CommandPlugin):
         if f"{result.latitude}_{result.longitude}" in self.weather_cache:
             return self.weather_cache[f"{result.latitude}_{result.longitude}"]
 
+<<<<<<< HEAD
         url = "https://api.darksky.net/forecast/a9e3a133c381b590822adf5a930eafa5/{latitude},{longitude}?lang=ru&units=si&exclude=minutely,currently,alerts,flags"
+=======
+        url = "https://api.darksky.net/forecast/{token}/{latitude},{longitude}?lang=ru&units=si&exclude=minutely,currently,alerts,flags"
+>>>>>>> 700e22f6b169670f8f1a7a1a57e7e060380ff6cd
 
         if self.api_lim_clear - time.time() <= 0:
             self.api_lim_clear = time.time() + 24 * 60 * 60
