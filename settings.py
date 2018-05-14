@@ -79,7 +79,6 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),  # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
-        AzinoPlugin("азино", prefixes=prefixes),
         DuelerPlugin(prefixes=prefixes),
         WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         VoterPlugin(prefixes=prefixes),
