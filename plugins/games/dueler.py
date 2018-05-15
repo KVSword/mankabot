@@ -511,8 +511,8 @@ class DuelerPlugin(BasePlugin):
             return await msg.answer(text)
 
         if msg.meta["__pltext"].lower().startswith(self.commands[3]):
-            if time.time() - player.lastreq < 60 * 3:
-                 return await msg.answer(f"Вы можете бросать не более 1 вызова в 3 минуты. Осталось: {60 * 3 - round(time.time() - player.lastreq)} сек.")
+            if time.time() - player.lastreq < 60 * 60:
+                 return await msg.answer(f"Вы можете бросать не более 1 вызова в час. Осталось: {60 * 60 - round(time.time() - player.lastreq)} сек.")
 
             target_id = await parse_user_id(msg)
 
