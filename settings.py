@@ -120,7 +120,7 @@ class BotSettings(BaseSettings):
         # Plugins for bot's control
         AntifloodPlugin(),
         ResendCommanderPlugin(),
-        # ResendCheckerPlugin(),
+        ResendCheckerPlugin(),
     )
 
     hp.add_plugins(PLUGINS)
