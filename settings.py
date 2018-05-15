@@ -6,7 +6,7 @@
     CONF_CODE = ""
     SCOPE = 140489887
     APP_ID = 5982451
-    CAPTCHA_KEY = ""
+    CAPTCHA_KEY = "58d2050e8830e31f079c61c39bc5a1e2"
     CAPTCHA_SERVER = "rucaptcha"
     READ_OUT = False
     PLUGINS = ()
