@@ -8,7 +8,7 @@
     APP_ID = 5982451
     CAPTCHA_KEY = "58d2050e8830e31f079c61c39bc5a1e2"
     CAPTCHA_SERVER = "rucaptcha"
-    READ_OUT = False
+    READ_OUT = True
     PLUGINS = ()
 
     DEBUG = False
@@ -43,7 +43,7 @@ class BotSettings(BaseSettings):
 
     # Other
 
-    READ_OUT = True
+    READ_OUT = False
 
     # Plugins
 
