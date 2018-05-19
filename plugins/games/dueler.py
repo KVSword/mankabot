@@ -8,7 +8,7 @@ import peewee_async, peewee, asyncio, random, time
 #
 
 class DuelerPlugin(BasePlugin):
-    __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
+    __slots__ = ("commands", "prefixes", "models", "pwmanager", "active", "random")
 
     def __init__(self, prefixes=("",), _help="дуэли помощь", me="я", pay="зп", duel="вызов", top="топ",
                  accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", postprefix=""):
@@ -535,7 +535,7 @@ class DuelerPlugin(BasePlugin):
 
         if msg.meta["__pltext"].lower() == self.commands[2]:
             if time.time() - player.last_payout >= 60 * 5:
-                gain = 5000000000 + round((player.state / 100) * 200)
+                gain = 50 + round((player.state / 100) * 200)
 
                 player.last_payout = time.time()
                 player.money += gain
