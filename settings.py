@@ -112,7 +112,7 @@ class BotSettings(BaseSettings):
 
         # Needs tokens (see plugin's codes, some have defaults):
         SayerPlugin(prefixes=prefixes),
-        Audio2TextPlugin(key="token for api", prefixes=prefixes),
+        # Audio2TextPlugin(key="token for api", prefixes=prefixes),
         # WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         # EmotionsDetectorPlugin("лицо", key="token for api", prefixes=prefixes),
         DialogflowPlugin(prefixes=prefixes),  # plugin for DialogflowPlugin (chatting, learning etc)
