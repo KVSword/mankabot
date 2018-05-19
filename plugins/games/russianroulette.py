@@ -124,7 +124,7 @@ class RussianRoulettePlugin(BasePlugin):
                 roulette.status = -1
                 await self.pwmanager.update(roulette)
 
-                return await msg.answer( + self.parse_user(msg, int(members[roulette.turn % len(members)])) + " мёртв. Конец игры. 💀")
+                return await msg.answer("💀" + self.parse_user(msg, int(members[roulette.turn % len(members)])) + " мёртв. Конец игры. 💀")
 
             roulette.turn += 1
             await self.pwmanager.update(roulette)
