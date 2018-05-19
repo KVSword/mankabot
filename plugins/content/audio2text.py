@@ -17,7 +17,7 @@ class Audio2TextPlugin(CommandPlugin):
         "commands_turn_on", "commands_turn_off", "configurations")
 
     def __init__(self, commands_once=None, commands_turn_on=None,
-            commands_turn_off=None, key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=None, strict=False):
+            commands_turn_off=None, key=None, prefixes=None, strict=False):
         if not key:
             raise AttributeError("No api key specified! Get it here: https://tech.yandex.ru/speechkit/cloud/")
 
