@@ -10,8 +10,8 @@ import peewee_async, peewee, asyncio, random, time
 class DuelerPlugin(BasePlugin):
     __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
 
-    def __init__(self, prefixes=("",), _help="дуэли помощь", me="я", pay="зп", duel="вызов", top="топ",
-                 accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", postprefix=""):
+    def __init__(self, prefixes=("",), _help="дуэли помощь", me="я", "профиль", "персонаж", "перс", pay="зп", duel="вызов", "вызвать", top="топ",
+                 accept="принять", auct="аукцион", "начать аукцион", bet="ставка", add="добавить", remove="удалить", postprefix=""):
         """Nice game "Dueler"."""
 
         super().__init__()
