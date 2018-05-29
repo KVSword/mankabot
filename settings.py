@@ -109,6 +109,7 @@ class BotSettings(BaseSettings):
         CalculatorPlugin("посчитай", "посч", prefixes=prefixes),
         VideoPlugin("видео", prefixes=prefixes),
         DispatchPlugin("рассылка", prefixes=prefixes, admins=admins),
+		AudioPlugin("музыка",prefixes=prefixes)
         hp,
 
         # Needs tokens (see plugin's codes, some have defaults):
