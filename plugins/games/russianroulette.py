@@ -97,7 +97,7 @@ class RussianRoulettePlugin(BasePlugin):
 
         if msg.meta["__cmd"] == "join":
             if roulette.status == 1:
-                return await msg.answer("Игра уже идёт.")
+                return await msg.answer("Игра уже идёт. Ход игрока " + self.parse_user(msg, int(members[roulette.turn % len(members)])) + "\n")
 
             if f"{msg.user_id}a" not in roulette.members:
                 if await self.pwmanager.execute(self.roulette.update(members=self.roulette.members.concat(f"{msg.user_id}a")).where(self.roulette.chat_id == roulette.chat_id)):
@@ -118,7 +118,7 @@ class RussianRoulettePlugin(BasePlugin):
                 return await msg.answer("💀 Игра ещё не началась.")
 
             if str(msg.user_id) != members[roulette.turn % len(members)]:
-                return await msg.answer("💀 Сейчас не ваш ход.")
+                return await msg.answer("💀 сейчас ход игрока " + self.parse_user(msg, int(members[roulette.turn % len(members)])) + "")
 
             if random.random() * 6 < 1 + roulette.turn / 2:
                 roulette.status = -1
