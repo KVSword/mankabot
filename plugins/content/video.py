@@ -16,7 +16,7 @@ class VideoPlugin(CommandPlugin):
             q=self.parse_message(msg, full_text=True)[1] or "Jojo",
             sort=2,
             count=10,
-            adult=0
+            adult=10
         )
 
         if not data or not data.get("items"):
