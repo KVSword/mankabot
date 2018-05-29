@@ -12,7 +12,7 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
-        data = await self.api.audio.search(
+        data = await self.api.video.search(
             q=self.parse_message(msg, full_text=True)[1] or "Jojo",
             sort=2,
             count=10,
@@ -25,7 +25,7 @@ class VideoPlugin(CommandPlugin):
         return await msg.answer(
             'Приятного просмотра!',
             attachment=','.join(
-                f"audio{aud['owner_id']}_{aud['id']}"
-                    for aud in data["items"]
+                f"audio{vid['owner_id']}_{vid['id']}"
+                    for vid in data["items"]
             )
         )
