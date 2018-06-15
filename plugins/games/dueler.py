@@ -243,7 +243,6 @@ class DuelerPlugin(BasePlugin):
         Auct, Duel, Player, Equipment = self.models
 
         player = msg.meta["__cplayer"] or await self.get_or_create_player(msg.chat_id, msg.user_id)
-		
 		if msg.meta["__pltext"].lower().startswith(self.commands[10]):
             if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
                 return msg.answer("Недостаточно прав.")
