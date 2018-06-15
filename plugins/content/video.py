@@ -14,9 +14,9 @@ class VideoPlugin(CommandPlugin):
     async def process_message(self, msg):
         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=True)[1] or "Jojo",
-            sort=0,
-            count=0,
-            adult=0
+            sort=10,
+            count=10,
+            adult=5
         )
 
         if not data or not data.get("items"):
