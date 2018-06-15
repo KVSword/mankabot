@@ -11,12 +11,12 @@ class DuelerPlugin(BasePlugin):
     __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
 
     def __init__(self, prefixes=("",), _help="дуэли помощь", me="я", pay="зп", duel="вызов", top="топ",
-                 accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", postprefix=""):
+                 accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", hack="чит" postprefix=""):
         """Nice game "Dueler"."""
 
         super().__init__()
 
-        self.commands = [(postprefix + " " if postprefix else "") + c.lower() for c in (me, _help, pay, duel, accept, auct, bet, add, remove, top)]  # [-1] == [9]
+        self.commands = [(postprefix + " " if postprefix else "") + c.lower() for c in (me, _help, pay, duel, accept, auct, bet, add, remove, top, hack)]  # [-1] == [10]
         self.prefixes = prefixes
 
         self.pwmanager = None
@@ -217,7 +217,7 @@ class DuelerPlugin(BasePlugin):
 
     async def process_message(self, msg):
         if msg.meta["__pltext"].lower() == self.commands[1]:
-            me, _help, pay, duel, accept, auct, bet, add, remove, top = self.commands
+            me, _help, pay, duel, accept, auct, bet, add, remove, top, hack = self.commands
             p = self.prefixes[0]
 
             return await msg.answer(f'''У каждoго учаcтникa чата есть свой игровой пeрсoнаж, имеющий:
@@ -243,7 +243,21 @@ class DuelerPlugin(BasePlugin):
         Auct, Duel, Player, Equipment = self.models
 
         player = msg.meta["__cplayer"] or await self.get_or_create_player(msg.chat_id, msg.user_id)
+		
+		if msg.meta["__pltext"].lower().startswith(self.commands[10]):
+            if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
+                return msg.answer("Недостаточно прав.")
+				
+				gain = 500000 + round((player.state / 100) * 200)
 
+                player.money += gain
+                await self.pwmanager.update(player)
+
+                return await msg.answer(f"💰 Вы заработали: {gain}$\n")
+
+            await self.pwmanager.update(player)
+
+				
         if msg.meta["__pltext"].lower().startswith(self.commands[9]):
             top = await self.pwmanager.execute(Player.select().where(Player.chat_id == msg.chat_id).order_by(Player.wins.desc()).limit(10))
 
@@ -534,7 +548,7 @@ class DuelerPlugin(BasePlugin):
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
         if msg.meta["__pltext"].lower() == self.commands[2]:
-            if time.time() - player.last_payout >= 60 * 5:
+            if time.time() - player.last_payout >= 60 * 60:
                 gain = 50 + round((player.state / 100) * 200)
 
                 player.last_payout = time.time()
