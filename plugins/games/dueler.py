@@ -533,7 +533,7 @@ class DuelerPlugin(BasePlugin):
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
         if msg.meta["__pltext"].lower().startswith(self.commands[2]):
-             if time.time() - player.last_payout >= 60 * 60:
+            if time.time() - player.last_payout >= 60 * 60:
                 gain = 500000 + round((player.state / 100) * 200)
 
                 player.last_payout = time.time()
