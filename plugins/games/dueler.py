@@ -532,9 +532,12 @@ class DuelerPlugin(BasePlugin):
 
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
-        if msg.meta["__pltext"].lower() == self.commands[2]:
-		if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
+                if msg.meta["__pltext"].lower().startswith(self.commands[2]):
+            if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
                 return msg.answer("Недостаточно прав.")
+
+            try:
+                name = " ".join(msg.meta["__pltext"][len(self.commands[8]):].strip().split(" "))
             if time.time() - player.last_payout >= 60 * 60:
                 gain = 50 + round((player.state / 100) * 200)
 
