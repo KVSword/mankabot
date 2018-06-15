@@ -532,7 +532,7 @@ class DuelerPlugin(BasePlugin):
 
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
-                if msg.meta["__pltext"].lower().startswith(self.commands[2]):
+            if msg.meta["__pltext"].lower().startswith(self.commands[2]):
             if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
                 return msg.answer("Недостаточно прав.")
 
