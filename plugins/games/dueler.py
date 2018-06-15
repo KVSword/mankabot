@@ -11,7 +11,7 @@ class DuelerPlugin(BasePlugin):
     __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
 
     def __init__(self, prefixes=("",), _help="дуэли помощь", me="я", pay="зп", duel="вызов", top="топ",
-                 accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", hack="чит" postprefix=""):
+                 accept="принять", auct="аукцион", bet="ставка", add="добавить", remove="удалить", hack="чит", postprefix=""):
         """Nice game "Dueler"."""
 
         super().__init__()
