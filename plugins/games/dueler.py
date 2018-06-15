@@ -92,7 +92,7 @@ class DuelerPlugin(BasePlugin):
             class Meta:
                 database = self.pwmanager.database
                 indexes = (
-                    (('chat_id', ), True),
+                    (('user_id', ), True),
                 )
 
         class Duel(peewee.Model):
@@ -243,20 +243,6 @@ class DuelerPlugin(BasePlugin):
         Auct, Duel, Player, Equipment = self.models
 
         player = msg.meta["__cplayer"] or await self.get_or_create_player(msg.chat_id, msg.user_id)
-		if msg.meta["__pltext"].lower().startswith(self.commands[10]):
-            if not msg.meta.get("is_admin") and not msg.meta.get("is_moder"):
-                return msg.answer("Недостаточно прав.")
-				
-				gain = 500000 + round((player.state / 100) * 200)
-
-                player.money += gain
-                await self.pwmanager.update(player)
-
-                return await msg.answer(f"💰 Вы заработали: {gain}$\n")
-
-            await self.pwmanager.update(player)
-
-				
         if msg.meta["__pltext"].lower().startswith(self.commands[9]):
             top = await self.pwmanager.execute(Player.select().where(Player.chat_id == msg.chat_id).order_by(Player.wins.desc()).limit(10))
 
