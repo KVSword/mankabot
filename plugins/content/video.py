@@ -8,7 +8,7 @@ class VideoPlugin(CommandPlugin):
         super().__init__(*commands, prefixes=prefixes, strict=strict)
 
         self.description = [
-            "Видео", f"{self.command_example(1)} [запрос] - поиск видео по запросу"
+            "Видео", f"{self.command_example(1)} [запрос] - поиск видео по запросу",
 			"Музыка", f"{self.command_example(2)} [запрос] - поиск музыки "
         ]
 
