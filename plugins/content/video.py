@@ -14,7 +14,7 @@ class VideoPlugin(CommandPlugin):
 
     async def process_message(self, msg):
         data = await self.api.video.search(
-            q=self.parse_message(msg, full_text=False)[1] or "anime.webm Jojo",
+            q=self.parse_message(msg, full_text=False)[2] or "anime.webm Jojo",
             sort=10,
             count=10,
             adult=10
@@ -27,6 +27,24 @@ class VideoPlugin(CommandPlugin):
             'Приятного просмотра!',
             attachment=','.join(
                 f"video{vid['owner_id']}_{vid['id']}"
+                    for vid in data["items"]
+            )
+        )
+    async def process_message(self, msg):
+        data = await self.api.audio.search(
+            q=self.parse_message(msg, full_text=False)[1] or "netta",
+            sort=10,
+            count=10,
+            adult=10
+        )
+
+        if not data or not data.get("items"):
+            return await msg.answer("Я не могу получить музыку или ничего не нашлось!")
+
+        return await msg.answer(
+            'Приятного прослушивания!',
+            attachment=','.join(
+                f"audio{vid['owner_id']}_{vid['id']}"
                     for vid in data["items"]
             )
         )
