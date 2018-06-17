@@ -42,7 +42,7 @@ class VideoPlugin(CommandPlugin):
                     for vid in data["items"]
             )
         )
-	async def process_message(self, msg):
+	 async def process_message(self, msg):
         data = await self.api.audio.search(
 		q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
 		sort=10
