@@ -7,17 +7,15 @@ class VideoPlugin(CommandPlugin):
     def __init__(self, audio_commands=None, video_commands=None, prefixes=None, strict=False):
         """This plugin allows users to do votes in chats with ability to kick someone with votekick"""
 
-        if not vote_commands:
+        if not audio_commands:
             audio_commands = ["music", "музыка"]
 
-        if not vote_undo_commands:
+        if not video_commands:
             video_commands = ["video", "видео"]
 
         super().__init__(*(video_commands + audio_commands), prefixes=prefixes, strict=strict)
 
         self.command_groups = video_commands, audio_commands
-        self.votes = {}
-
         p = self.prefixes[-1]
         self.description = [f"Видео и музыка"
                             f"{p}{video_commands[0]} [запрос] - поиск музыки "
@@ -25,6 +23,7 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
+	    if command in self.command_groups[0]:
         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[2] or "anime.webm Jojo",
             sort=10,
@@ -42,7 +41,7 @@ class VideoPlugin(CommandPlugin):
                     for vid in data["items"]
             )
         )
-	 async def process_message(self, msg):
+		if command in self.command_groups[1]:
         data = await self.api.audio.search(
 		q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
 		sort=10
