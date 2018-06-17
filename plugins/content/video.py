@@ -23,13 +23,13 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
-	    if command in self.command_groups[0]:
-        data = await self.api.video.search(
+	 if command in self.command_groups[0]:
+         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[2] or "anime.webm Jojo",
             sort=10,
             count=10,
             adult=10
-        )
+         )
 
         if not data or not data.get("items"):
             return await msg.answer("Я не могу получить видео или ничего не нашлось!")
@@ -41,13 +41,13 @@ class VideoPlugin(CommandPlugin):
                     for vid in data["items"]
             )
         )
-		if command in self.command_groups[1]:
-        data = await self.api.audio.search(
-		q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
-		sort=10
-		count=10
-		adult=10
-		)
+	 if command in self.command_groups[1]:
+         data = await self.api.audio.search(
+		 q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
+		 sort=10
+		 count=10
+		 adult=10
+		 )
 		
 		if not data or not data.get("items")
 		     return await msg.answer("бот или админ ретард который не может нормально сделать плагин")
