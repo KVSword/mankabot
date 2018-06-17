@@ -37,16 +37,17 @@ class VideoPlugin(CommandPlugin):
             adult=10
          )
 
-        if not data or not data.get("items"):
+         if not data or not data.get("items"):
             return await msg.answer("Я не могу получить видео или ничего не нашлось!")
 
-        return await msg.answer(
-            'Приятного просмотра!',
-            attachment=','.join(
-                f"video{vid['owner_id']}_{vid['id']}"
-                    for vid in data["items"]
-            )
-        )
+         return await msg.answer(
+             'Приятного просмотра!',
+             attachment=','.join(
+                 f"video{vid['owner_id']}_{vid['id']}"
+                     for vid in data["items"]
+             )
+         )
+		
 	    if command in self.command_groups[1]:
           data = await self.api.audio.search(
 		  q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
