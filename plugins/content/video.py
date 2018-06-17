@@ -23,7 +23,10 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
-     if command in self.command_groups[0]:
+	
+	    command, text = self.parse_message(msg, True) 
+		
+        if command in self.command_groups[0]:
          data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[2] or "anime.webm Jojo",
             sort=10,
