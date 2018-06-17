@@ -4,14 +4,14 @@ from handler.base_plugin_command import CommandPlugin
 class VideoPlugin(CommandPlugin):
     __slots__ = ("command_groups",)
 
-    def __init__(self, vote_commands=None,  vote_undo_commands=None, votekick_commands=None, prefixes=None, strict=False):
+    def __init__(self, audio_commands=None, video_commands=None, prefixes=None, strict=False):
         """This plugin allows users to do votes in chats with ability to kick someone with votekick"""
 
         if not vote_commands:
-            vote_commands = ["vote", "+"]
+            audio_commands = ["music", "музыка"]
 
         if not vote_undo_commands:
-            vote_undo_commands = ["unvote", "-"]
+            video_commands = ["video", "видео"]
 
         super().__init__(*(video_commands + audio_commands), prefixes=prefixes, strict=strict)
 
@@ -52,4 +52,12 @@ class VideoPlugin(CommandPlugin):
 		
 		if not data or not data.get("items")
 		     return await msg.answer("бот или админ ретард который не может нормально сделать плагин")
+			 
+	            return await msg.answer(
+            'Приятного прослушивания!',
+            attachment=','.join(
+                f"audio{vid['owner_id']}_{vid['id']}"
+                    for vid in data["items"]
+            )
+        )
         		
