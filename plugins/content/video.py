@@ -1,4 +1,9 @@
 from handler.base_plugin_command import CommandPlugin
+from handler.base_plugin_command import CommandPlugin
+from vk.helpers import parse_user_id
+from utils import plural_form
+
+import asyncio, re
 
 
 class VideoPlugin(CommandPlugin):
@@ -23,13 +28,6 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
-	    if msg.chat_id == 0:
-            return await msg.answer("Эта команда доступна только в беседах.")
-
-        if "__chat_data" not in msg.meta:
-            raise ValueError("This plugin requires `ChatMetaPlugin`.")
-	
-	    command, text = self.parse_message(msg, True) 
 		
         if command in self.command_groups[0]:
          data = await self.api.video.search(
