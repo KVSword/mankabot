@@ -23,7 +23,7 @@ class VideoPlugin(CommandPlugin):
         ]
 
     async def process_message(self, msg):
-	 if command in self.command_groups[0]:
+     if command in self.command_groups[0]:
          data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[2] or "anime.webm Jojo",
             sort=10,
@@ -41,7 +41,7 @@ class VideoPlugin(CommandPlugin):
                     for vid in data["items"]
             )
         )
-	 if command in self.command_groups[1]:
+	if command in self.command_groups[1]:
          data = await self.api.audio.search(
 		 q=self.parse_message(msg, full_text=True)[1] or "Imagine Drgons"
 		 sort=10
