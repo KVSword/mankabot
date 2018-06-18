@@ -471,7 +471,7 @@ class DuelerPlugin(BasePlugin):
             text = (
                 "Битва персонажей 🤺\"" + users[0]["first_name"] + " " + users[0]["last_name"]  + "\" и "
                 "🤺\"" + users[1]["first_name"] + " " + users[1]["last_name"]  + "\"\n"
-				"Характеристика персонажа" + users[0]["first_name"] + " " + users[0]["last_name"]
+				"Характеристика персонажа" + users[0]["first_name"] + " " + users[0]["last_name"] + "\n"
                 "🤛 Уровень: " + str(level1) + "\n"
                 "🤛 Cостояния: " + str(player1.state) + "%" + "\n"
                 "🤛 Экипировка: " + str(epower1)  "\n"
