@@ -79,9 +79,8 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
-	HentaiPlugin("хентай", prefixes=prefixes),
-	Audio2TextPlugin(key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=prefixes),
-        LockChatPlugin("сохранять", prefixes=prefixes),
+	    EchoPlugin("хентай", prefixes=prefixes),
+	    LockChatPlugin("сохранять", prefixes=prefixes),
         AzinoPlugin("азино", prefixes=prefixes),
         RussianRoulettePlugin(prefixes=prefixes),
         LockChatPlugin("сохранять", prefixes=prefixes),
@@ -105,7 +104,8 @@ class BotSettings(BaseSettings):
         ChatKickerPlugin(["кик"], ["фри", "анкик"], prefixes=prefixes, admins=admins, admins_only=True),
         RandomPostPlugin({"random": "-111759315", "memes": "-77127883", "мемы": "-77127883"}, prefixes=prefixes),
         CalculatorPlugin("посчитай", "посч", prefixes=prefixes),
-        VideoPlugin("видео", prefixes=prefixes),
+        Audio2TextPlugin(key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=prefixes),
+		VideoPlugin("видео", prefixes=prefixes),
         DispatchPlugin("рассылка", prefixes=prefixes, admins=admins),
         hp,
 
