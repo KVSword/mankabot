@@ -20,7 +20,7 @@ from plugins import *
 # Edit this settings
 class BotSettings(BaseSettings):
     USERS = (
-        ("user", "2250d9f4eb1932e8244ec37843cb81f465fa13882df3087cd62aee6d6ebb64bea285574123def732b90cd",),
+        ("user", "d18abc930f146b329cceed588f5588834ae73447e53076552845ce4c3622c63d331cc8e76dfe4cca7fafd",),
     )
 
     PROXIES = (
@@ -57,7 +57,7 @@ class BotSettings(BaseSettings):
     #
     # You can import all plugins at once using `from plugins import *` at module-level.
 
-    prefixes = ("!", "бот ", "бот, ", "бот,")
+    prefixes = ("!", "бот ", "бот, ", "бот,", "jojo", "джоджо")
     admins = (291434783, 393951972)
 
     hp = HelpPlugin("помощь", "команды", "?", short=False, prefixes=prefixes)
