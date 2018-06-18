@@ -549,7 +549,8 @@ class DuelerPlugin(BasePlugin):
                 player.money += gain
                 await self.pwmanager.update(player)
 
-                return await msg.answer(f"💰 Вы заработали: {gain}$\n💰 Заходите через час!")
+                return await msg.answer(f"💰 Вы заработали: {gain}$\n💰 Заходите через час!" "\n" 
+				"Ваш баланс{player.money}$")
 
             await self.pwmanager.update(player)
 
