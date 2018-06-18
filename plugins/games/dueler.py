@@ -359,8 +359,8 @@ class DuelerPlugin(BasePlugin):
         if msg.meta["__pltext"].lower() == self.commands[5]:
             auct = await self.get_or_create_auct(msg.chat_id)
 
-            if time.time() - auct.endt < 60 * 66:
-                return await msg.answer(f"💰 Вы сможете начать аукцион через {66 - round((time.time() - auct.endt) / 60)} мин.")
+            if time.time() - auct.endt < 60 * 60:
+                return await msg.answer(f"💰 Вы сможете начать аукцион через {60 - round((time.time() - auct.endt) / 60)} мин.")
 
             equipments = list(await self.pwmanager.execute(Equipment.select()))
 
@@ -542,8 +542,8 @@ class DuelerPlugin(BasePlugin):
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
         if msg.meta["__pltext"].lower().startswith(self.commands[2]):
-            if time.time() - player.last_payout >= 60 * 3600:
-                gain = 500 + round((player.state / 100) * 200)
+            if time.time() - player.last_payout >= 60 * 60:
+                gain = 25 + round((player.state / 100) * 200)
 
                 player.last_payout = time.time()
                 player.money += gain
