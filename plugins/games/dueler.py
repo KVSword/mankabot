@@ -474,7 +474,7 @@ class DuelerPlugin(BasePlugin):
 				"Характеристика персонажа" + users[0]["first_name"] + " " + users[0]["last_name"] + "\n"
                 "🤛 Уровень: " + str(level1) + "\n"
                 "🤛 Cостояния: " + str(player1.state) + "%" + "\n"
-                "🤛 Экипировка: " + str(epower1)  "\n"
+                "🤛 Экипировка: " + str(epower1) + "\n"
                 "🤛 Актив сила: " + str(round(apower1 - epower1, 2)) + "\n"
                 "🤛 Сила опыта: " + str(round(lpower1 - apower1, 2)) + "\n\n"
                 "🤛 Сила удачи: " + str(round(power1 - lpower1, 2)) + "\n\n"
