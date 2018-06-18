@@ -1,6 +1,5 @@
 from handler.base_plugin_command import CommandPlugin
 
-
 class VideoPlugin(CommandPlugin):
     __slots__ = ()
 
