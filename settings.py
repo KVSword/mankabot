@@ -79,6 +79,7 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
+	    HentaiPlugin(prefixes=prefixes),
 	    Audio2TextPlugin(key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=prefixes),
         LockChatPlugin("сохранять", prefixes=prefixes),
         AzinoPlugin("азино", prefixes=prefixes),
@@ -98,12 +99,9 @@ class BotSettings(BaseSettings):
         MembersPlugin("кто тут", prefixes=prefixes),
         PairPlugin("кто кого", prefixes=prefixes),
         WhoIsPlugin("кто", prefixes=prefixes),
-        YandexNewsPlugin(["новости"], ["помощь", "категории", "?"], prefixes=prefixes),
         AboutPlugin("о боте", "инфа", prefixes=prefixes),
         BirthdayPlugin("дни рождения", "др", prefixes=prefixes),
-        TimePlugin("время", prefixes=prefixes),
         ToptextbottomtextPlugin("мем", "свой текст", prefixes=prefixes),
-        QRCodePlugin("qr", "кр", prefixes=prefixes),
         ChatKickerPlugin(["кик"], ["фри", "анкик"], prefixes=prefixes, admins=admins, admins_only=True),
         RandomPostPlugin({"random": "-111759315", "memes": "-77127883", "мемы": "-77127883"}, prefixes=prefixes),
         CalculatorPlugin("посчитай", "посч", prefixes=prefixes),
