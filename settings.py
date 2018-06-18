@@ -43,7 +43,7 @@ class BotSettings(BaseSettings):
 
     # Other
 
-    READ_OUT = True
+    READ_OUT = False
 
     # Plugins
 

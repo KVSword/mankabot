@@ -44,7 +44,7 @@ class HelpPlugin(CommandPlugin):
                 continue
 
             if self.short:
-                result += "🔶 " + plugin.description[0] + ". " + " // ".join(plugin.description[1:]) + "\n"
+                result += "🔶🔶🔶🔶🔶🔶 " + plugin.description[0] + ". " + " // ".join(plugin.description[1:]) + "\n"
                 continue
 
             result += "🔷" + plugin.description[0] + ":🔷" + "\n"
