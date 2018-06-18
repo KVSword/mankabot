@@ -471,13 +471,22 @@ class DuelerPlugin(BasePlugin):
             text = (
                 "Битва персонажей 🤺\"" + users[0]["first_name"] + " " + users[0]["last_name"]  + "\" и "
                 "🤺\"" + users[1]["first_name"] + " " + users[1]["last_name"]  + "\"\n"
-                "💪 Уровни: " + str(level1) + " / " + str(level2) + "\n"
-                "💪 Cостояния: " + str(player1.state) + "% / " + str(player2.state) + "%\n"
-                "💪 Экипировка: " + str(epower1) + " / " + str(epower2) + "\n"
-                "💪 Актив сила: " + str(round(apower1 - epower1, 2))  + " / " + str(round(apower2 - epower2, 2)) + "\n"
-                "💪 Сила опыта: " + str(round(lpower1 - apower1, 2))  + " / " + str(round(lpower2 - apower2, 2)) + "\n\n"
-                "💪 Сила удачи: " + str(round(power1 - lpower1, 2))  + " / " + str(round(power2 - lpower2, 2)) + "\n\n"
-                "💪 СИЛА: " + str(round(power1, 2))  + " / " + str(round(power2, 2)) + "\n\n"
+				"Характеристика персонажа" + users[0]["first_name"] + " " + users[0]["last_name"]
+                "💪 Уровень: " + str(level1) "\n"
+                "💪 Cостояния: " + str(player1.state) + "%" , "\n"
+                "💪 Экипировка: " + str(epower1)  "\n"
+                "💪 Актив сила: " + str(round(apower1 - epower1, 2)) "\n"
+                "💪 Сила опыта: " + str(round(lpower1 - apower1, 2))  "\n\n"
+                "💪 Сила удачи: " + str(round(power1 - lpower1, 2))  "\n\n"
+                "💪 СИЛА: " + str(round(power1, 2)) "\n\n"
+				"Характеристика персонажа" + users[1]["first_name"] + " " + users[1]["last_name"]
+                "💪 Уровень: " + str(level2) "\n"
+                "💪 Cостояния: " + str(player2.state) + "%" , "\n"
+                "💪 Экипировка: " + str(epower2)  "\n"
+                "💪 Актив сила: " + str(round(apower2 - epower1, 2)) "\n"
+                "💪 Сила опыта: " + str(round(lpower2 - apower1, 2))  "\n\n"
+                "💪 Сила удачи: " + str(round(power2 - lpower1, 2))  "\n\n"
+                "💪 СИЛА: " + str(round(power2, 2)) "\n\n"
             )
 
             if player1win:
@@ -533,8 +542,8 @@ class DuelerPlugin(BasePlugin):
             return await msg.answer(f"[id{target_id}|Вы готовы принять вызов?]\nНапишите \"{self.prefixes[0]}{self.commands[4]}\", чтобы принять.")
 
         if msg.meta["__pltext"].lower().startswith(self.commands[2]):
-            if time.time() - player.last_payout >= 60 * 60:
-                gain = 25 + round((player.state / 100) * 200)
+            if time.time() - player.last_payout >= 60 * 3600:
+                gain = 500 + round((player.state / 100) * 200)
 
                 player.last_payout = time.time()
                 player.money += gain
@@ -559,8 +568,9 @@ class DuelerPlugin(BasePlugin):
                 f"🌳 Уровень: {level}\n"
                 f"🌳 Опыта до повышения уровня: {round(exp_left)}\n"
                 f"🌳 Состояние: {player.state}%\n"
-                f"🌳 Богатства: {player.money}$\n"
-                f"🌳 Победы/поражения: {player.wins}/{player.losses}\n"
+                f"🌳 Деньги: {player.money}$\n"
+                f"🌳 Победы: {player.wins}\n"
+				f"🌳 Поражения: {player.loses}\n"
                 "🌳 Снаряжение:\n"
             )
 
