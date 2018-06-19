@@ -564,8 +564,7 @@ class DuelerPlugin(BasePlugin):
             level, exp_left = self.get_level(player.wins * 10 + player.losses * 5)
 
             text = (
-                "💬 Информация о персонаже:\n"
-                f"🌳 {user['first_name']} {user['last_name']}\n"
+                "💬 Информация о персонаже: {user['first_name']} {user['last_name']}\n"
                 f"🌳 Уровень: {level}\n"
                 f"🌳 Опыта до повышения уровня: {round(exp_left)}\n"
                 f"🌳 Состояние: {player.state}%\n"
