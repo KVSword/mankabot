@@ -1,16 +1,27 @@
 from handler.base_plugin_command import CommandPlugin
 
 class VideoPlugin(CommandPlugin):
-    __slots__ = ()
+    __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
 
-    def __init__(self, *commands, prefixes=None, strict=False):
-        super().__init__(*commands, prefixes=prefixes, strict=strict)
+    def __init__(self, prefixes=("",), video="видео", music="музыка", hentai="хентай", postprefix=""):
 
-        self.description = [
-            "Видео", f"{self.command_example()} [запрос] - поиск видео по запросу"
-        ]
+        super().__init__()
+
+        self.commands = [(postprefix + " " if postprefix else "") + c.lower() for c in (video, music, hentai,)]  # [-1] == [10]
+        self.prefixes = prefixes
+
+        self.pwmanager = None
+        self.models = []
+        self.active = True
+
+        self.description = [" \Разное\"",
+		                    f"{self.prefixes[0]}{self.commands[0]} - поиск видео"
+                            f"{self.prefixes[0]}{self.commands[1]} - поиск музыки"]
 
     async def process_message(self, msg):
+        if msg.meta["__pltext"].lower() == self.commands[0]:
+            video, music = self.commands
+            p = self.prefixes[0]
         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
             sort=10,
