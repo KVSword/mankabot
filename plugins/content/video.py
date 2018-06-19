@@ -19,7 +19,7 @@ class VideoPlugin(CommandPlugin):
                             f"{self.prefixes[0]}{self.commands[1]} - поиск музыки "]
 
     async def process_message(self, msg):
-        if msg.meta["__pltext"].lower() == self.commands[0]:
+        if msg.meta["__pltext"].lower() == self.commands[1]:
             video, music, hentai = self.commands
             p = self.prefixes[0]
         data = await self.api.video.search(
