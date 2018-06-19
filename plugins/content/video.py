@@ -1,4 +1,8 @@
 from handler.base_plugin_command import CommandPlugin
+from handler.base_plugin import BasePlugin
+from vk.helpers import parse_user_id
+
+import peewee_async, peewee, asyncio, random, time
 
 class VideoPlugin(CommandPlugin):
     __slots__ = ("commands", "prefixes", "models", "pwmanager", "active")
