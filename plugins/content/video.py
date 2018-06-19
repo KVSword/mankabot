@@ -46,11 +46,11 @@ class VideoPlugin(CommandPlugin):
             video, music, hentai = self.commands
             p = self.prefixes[0]
         data = await self.api.video.search(
-             q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
-             sort=10,
-             count=10,
-             adult=10
-          )
+            q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
+            sort=10,
+            count=10,
+            adult=10
+        )
 
         if not data or not data.get("items"):
            return await msg.answer("Я не могу получить видео или ничего не нашлось!")
