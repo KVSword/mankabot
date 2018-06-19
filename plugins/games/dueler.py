@@ -217,7 +217,7 @@ class DuelerPlugin(BasePlugin):
 
     async def process_message(self, msg):
         if msg.meta["__pltext"].lower() == self.commands[1]:
-            me, _help, pay, duel, accept, auct, bet, add, remove, top, hack = self.commands
+            me, _help, pay, duel, accept, auct, bet, add, remove, top, = self.commands
             p = self.prefixes[0]
 
             return await msg.answer(f'''У каждoго учаcтникa чата есть свой игровой пeрсoнаж, имеющий:

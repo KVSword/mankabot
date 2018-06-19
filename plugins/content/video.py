@@ -10,26 +10,22 @@ class VideoPlugin(CommandPlugin):
         self.commands = [(postprefix + " " if postprefix else "") + c.lower() for c in (video, music, hentai,)]  # [-1] == [10]
         self.prefixes = prefixes
 
-        self.pwmanager = None
-        self.models = []
-        self.active = True
-
         self.description = [" \Разное\"",
-		                    f"{self.prefixes[0]}{self.commands[0]} - поиск видео"
-                            f"{self.prefixes[0]}{self.commands[1]} - поиск музыки"]
+		                    f"{self.prefixes[0]}{self.commands[0]} - поиск видео n\""
+                            f"{self.prefixes[0]}{self.commands[1]} - поиск музыки "]
 
     async def process_message(self, msg):
         if msg.meta["__pltext"].lower() == self.commands[0]:
-            video, music = self.commands
+            video, music, hentai = self.commands
             p = self.prefixes[0]
-        data = await self.api.video.search(
-            q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
-            sort=10,
-            count=10,
-            adult=10
-         )
+         data = await self.api.video.search(
+             q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
+             sort=10,
+             count=10,
+             adult=10
+          )
 
-        if not data or not data.get("items"):
+         if not data or not data.get("items"):
            return await msg.answer("Я не могу получить видео или ничего не нашлось!")
 
         return await msg.answer(
