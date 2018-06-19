@@ -25,7 +25,7 @@ class VideoPlugin(CommandPlugin):
              adult=10
           )
 
-         if not data or not data.get("items"):
+        if not data or not data.get("items"):
            return await msg.answer("Я не могу получить видео или ничего не нашлось!")
 
         return await msg.answer(
