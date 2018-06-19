@@ -17,6 +17,29 @@ class VideoPlugin(CommandPlugin):
         self.description = [" \Разное\"",
 		                    f"{self.prefixes[0]}{self.commands[0]} - поиск видео n\""
                             f"{self.prefixes[0]}{self.commands[1]} - поиск музыки "]
+    async def check_message(self, msg):
+        prefix = None
+        pltext = ""
+
+        for p in self.prefixes:
+            if msg.full_text.startswith(p):
+                prefix = p
+                pltext = msg.full_text.replace(p, "", 1)
+                break
+
+        if prefix is None:
+            return False
+
+        for c in self.commands:
+            if pltext.startswith(c + " ") or pltext.startswith(c + "\n") or pltext == c:
+                break
+        else:
+            return False
+
+        msg.meta["__prefix"] = prefix
+        msg.meta["__pltext"] = pltext
+
+        return True
 
     async def process_message(self, msg):
         if msg.meta["__pltext"].lower() == self.commands[1]:
