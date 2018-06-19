@@ -18,7 +18,7 @@ class VideoPlugin(CommandPlugin):
         if msg.meta["__pltext"].lower() == self.commands[0]:
             video, music, hentai = self.commands
             p = self.prefixes[0]
-         data = await self.api.video.search(
+        data = await self.api.video.search(
              q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
              sort=10,
              count=10,
