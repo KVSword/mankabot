@@ -64,7 +64,7 @@ class VideoPlugin(CommandPlugin):
                 )
             )
 		
-		if msg.meta["__pltext"].lower() == self.commands[2]:
+		if msg.meta["__pltext"].lower() == self.commands[1]:
             p = self.prefixes[0]
                 data = await self.api.video.search(
                     q=self.parse_message(msg, full_text=True)[1] or "anime.webm Jojo",
