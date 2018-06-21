@@ -104,7 +104,6 @@ class BotSettings(BaseSettings):
         RandomPostPlugin({"random": "-111759315", "memes": "-77127883", "мемы": "-77127883"}, prefixes=prefixes),
         CalculatorPlugin("посчитай", "посч", prefixes=prefixes),
         Audio2TextPlugin(key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=prefixes),
-		VideoPlugin(prefixes=prefixes),
         DispatchPlugin("рассылка", prefixes=prefixes, admins=admins),
         hp,
 
