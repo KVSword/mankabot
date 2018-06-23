@@ -20,7 +20,8 @@ from plugins import *
 # Edit this settings
 class BotSettings(BaseSettings):
     USERS = (
-        ("user", "d18abc930f146b329cceed588f5588834ae73447e53076552845ce4c3622c63d331cc8e76dfe4cca7fafd",),
+        ("user", "d18abc930f146b329cceed588f5588834ae73447e53076552845ce4c3622c63d331cc8e76dfe4cca7fafd",
+		"user", "1ec6d41f999af9c3ad59412e34afd35f3c042a277fe57d50139a45ae2c17fc791aae5b8990fa626d89b3f",),
     )
 
     PROXIES = (
