@@ -80,6 +80,7 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
+        VideoPlugin("видео", prefixes=prefixes),
         LockChatPlugin("сохранять", prefixes=prefixes),
         AzinoPlugin("азино", prefixes=prefixes),
         RussianRoulettePlugin(prefixes=prefixes),
@@ -107,7 +108,6 @@ class BotSettings(BaseSettings):
         Audio2TextPlugin(key="1c89f760-adb8-49a0-a06e-6ac5c560cfa2", prefixes=prefixes),
         DispatchPlugin("рассылка", prefixes=prefixes, admins=admins),
         AudioPlugin("музыка", prefixes=prefixes),
-        VideoPlugin("видео"prefixes=prefixes),
         hp,
 
         # Needs tokens (see plugin's codes, some have defaults):
