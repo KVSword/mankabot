@@ -80,7 +80,6 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
-        VideoPlugin("видео", prefixes=prefixes),
         LockChatPlugin("сохранять", prefixes=prefixes),
         AzinoPlugin("азино", prefixes=prefixes),
         RussianRoulettePlugin(prefixes=prefixes),
