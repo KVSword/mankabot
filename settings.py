@@ -77,7 +77,7 @@ class BotSettings(BaseSettings):
         # LockChatPlugin("сохранять", prefixes=prefixes),
 
         # Can use `PeeweePlugin`:
-        RememberPlugin("напомни",prefixes=prefixes, use_db=true),   # use_db=True, if you can use PeeweePlugin
+        RememberPlugin("напомни",prefixes=prefixes, use_db=True),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
         AudioPlugin("музыка", prefixes=prefixes),		
