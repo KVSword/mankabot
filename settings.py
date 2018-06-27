@@ -80,8 +80,6 @@ class BotSettings(BaseSettings):
         RememberPlugin("напомни",prefixes=prefixes, use_db=True),   # use_db=True, if you can use PeeweePlugin
 
         # Plugins:
-        MusicPlugin("музыка", prefixes=prefixes),		
-        VideoPlugin("видео", prefixes=prefixes),
         LockChatPlugin("сохранять", prefixes=prefixes),
         AzinoPlugin("азино", prefixes=prefixes),
         RussianRoulettePlugin(prefixes=prefixes),
@@ -114,6 +112,8 @@ class BotSettings(BaseSettings):
         SayerPlugin(prefixes=prefixes),
         # WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         # EmotionsDetectorPlugin("лицо", key="token for api", prefixes=prefixes),
+        MusicPlugin("музыка", prefixes=prefixes),		
+        VideoPlugin("видео", prefixes=prefixes),
         DialogflowPlugin(prefixes=prefixes),  # plugin for DialogflowPlugin (chatting, learning etc)
 
         # Plugins for bot's control
