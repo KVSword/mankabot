@@ -111,7 +111,6 @@ class BotSettings(BaseSettings):
         SayerPlugin(prefixes=prefixes),
         # WeatherPlugin("погода", token="token for api", prefixes=prefixes),
         # EmotionsDetectorPlugin("лицо", key="token for api", prefixes=prefixes),	
-        EchoPlugin("музыка", prefixes=prefixes),
         VideoPlugin("видео", prefixes=prefixes),
         DialogflowPlugin(prefixes=prefixes),  # plugin for DialogflowPlugin (chatting, learning etc)
 
