@@ -13,10 +13,10 @@ class VideoPlugin(CommandPlugin):
 
     async def process_message(self, msg):
         data = await self.api.video.search(
-            q=self.parse_message(msg, full_text=True)[1] or "милый котик",
-            sort=2,
+            q=self.parse_message(msg, full_text=False)[1] or "anime.webm jojo",
+            sort=5,
             count=10,
-            adult=0,
+            adult=10,
             offset= random.randint(1, 300)
         )
 
