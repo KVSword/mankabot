@@ -10,8 +10,8 @@ class VideoPlugin(BasePlugin):
        super().__init__()
 	
        self.prefixes = prefixes
-       self.video_commands = video_commands or ["видео", "вид"]
-       self.music_commands = music_commands or ["музыка", "муз"]
+       self.video_commands = video_commands or ["видео"]
+       self.music_commands = music_commands or ["музыка"]
 	
        self.description = ["разное", f"{self.prefixes[0]}{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_commands[1]} - поиск музыки", "\n" ]
 	
