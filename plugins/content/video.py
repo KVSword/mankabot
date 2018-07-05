@@ -33,24 +33,24 @@ class VideoPlugin(CommandPlugin):
         return "__cmd" in msg.meta 
     async def process_message(self, msg):
         if msg.meta["__cmd"] == "video":
-        data = await self.api.video.search(
-            q=self.parse_message(msg, full_text=False)[1] or "anime.webm jojo",
-            sort=5,
-            count=10,
-            adult=10,
-            offset= random.randint(1, 300)
-        )
+           data = await self.api.video.search(
+               q=self.parse_message(msg, full_text=False)[1] or "anime.webm jojo",
+               sort=5,
+               count=10,
+               adult=10,
+               offset= random.randint(1, 300)
+           )
 
-        if not data or not data.get("items"):
-            return await msg.answer("Я не могу получить видео или ничего не нашлось!")
+           if not data or not data.get("items"):
+               return await msg.answer("Я не могу получить видео или ничего не нашлось!")
 
-        return await msg.answer(
-            'Приятного просмотра!',
-            attachment=','.join(
-                f"video{vid['owner_id']}_{vid['id']}"
-                    for vid in data["items"]
-            )
-        )
+           return await msg.answer(
+               'Приятного просмотра!',
+               attachment=','.join(
+                   f"video{vid['owner_id']}_{vid['id']}"
+                       for vid in data["items"]
+               )
+           )
         if msg.meta["__cmd"] == "music":
         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[1] or "neta",
