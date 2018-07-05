@@ -1,7 +1,7 @@
 from handler.base_plugin import BasePlugin
 import random
 
-class VideoPlugin(CommandPlugin):
+class VideoPlugin(BasePlugin):
     __slots__ = ("video_command", "music_command")
 
     def __init__(self, video_command=None, music_command=None, prefixes=()):
