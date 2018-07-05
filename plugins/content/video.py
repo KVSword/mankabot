@@ -5,15 +5,15 @@ class VideoPlugin(CommandPlugin):
     __slots__ = ("video_command", "music_command")
 
     def __init__(self, video_command=None, music_command=None, prefixes=()):
-    """Answers with a message it received."""
+       """Answers with a message it received."""
 	
-    super().__init__()
+       super().__init__()
 	
-    self.prefixes = prefixes
-    self.video_command = video_command or ["видео", "вид"]
-    self.music_command = music_command or ["музыка", "музык"]
+       self.prefixes = prefixes
+       self.video_command = video_command or ["видео", "вид"]
+       self.music_command = music_command or ["музыка", "музык"]
 	
-    self.description = ["видео", f"{self.prefixes[0]}{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_commands[1]} - поиск музыки", "\n" ]
+       self.description = ["видео", f"{self.prefixes[0]}{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_commands[1]} - поиск музыки", "\n" ]
 	
     async def check_messages(self, msg):
         current_text = msg.text
