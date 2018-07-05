@@ -4,7 +4,7 @@ import random
 class VideoPlugin(BasePlugin):
     __slots__ = ("prefixes", "video_commands", "music_commands")
 
-    def __init__(self, video_commands=None, music_commands=None, prefixes=()):
+    def __init__(self, video_commands=None, music_commands=None, prefixes=("!")):
        """Answers with a message it received."""
 	
        super().__init__()
@@ -13,7 +13,7 @@ class VideoPlugin(BasePlugin):
        self.video_commands = video_commands or ["видео"]
        self.music_commands = music_commands or ["музыка"]
 	
-       self.description = ["видео", "{self.video_commands[0]} - поиск видео", "\n" "музыка", "{self.music_commands[1]} - поиск музыки"]
+       self.description = ["видео", f"{self.video_commands[0]} - поиск видео", "музыка", f"{self.music_commands[1]} - поиск музыки"]
 	
     async def check_messages(self, msg):
         current_text = msg.text
