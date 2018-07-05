@@ -2,7 +2,7 @@ from handler.base_plugin import BasePlugin
 import random
 
 class VideoPlugin(BasePlugin):
-    __slots__ = ("video_command", "music_command")
+    __slots__ = ("prefixes", "video_command", "music_command")
 
     def __init__(self, video_command=None, music_command=None, prefixes=()):
        """Answers with a message it received."""
