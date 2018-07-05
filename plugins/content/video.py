@@ -5,6 +5,7 @@ class VideoPlugin(CommandPlugin):
     __slots__ = ("video_command", "music_command")
 
     def __init__(self, video_command=None, music_command=None, prefixes=()):
+    """Answers with a message it received."""
 	
     super().__init__()
 	
