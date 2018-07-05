@@ -1,17 +1,37 @@
-from handler.base_plugin_command import CommandPlugin
+from handler.base_plugin import BasePlugin
 import random
 
 class VideoPlugin(CommandPlugin):
-    __slots__ = ()
+    __slots__ = ("video_command", "music_command")
 
-    def __init__(self, *commands, prefixes=None, strict=False):
-        super().__init__(*commands, prefixes=prefixes, strict=strict)
+    def __init__(self, video_command=None, music_command=None, prefixes=()):
+	
+	super().__init__()
+	
+	self.prefixes = prefixes
+	self.video_command = video_command or ["видео", "вид"]
+	self.music_command = music_command or ["музыка", "музык"]
+	
+	self.description = ["видео", f"{self.prefixes[0]}{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_commands[1]} - поиск музыки", "\n" ]
+	
+    async def check_messages(self, msg):
+        current_text = msg.text
+        has_prefix = False
+        for pref in self.prefixes:
+            if current_text.startswith(pref):
+                current_text = current_text.replace(pref, "", 1)
+                has_prefix = True
+                break
 
-        self.description = [
-            "Видео", f"{self.command_example()} [запрос] - поиск видео по запросу"
-        ]
+        if current_text in self.video_commands and has_prefix:
+            msg.meta["__cmd"] = "video"
 
+        elif current_text in self.music_commands and has_prefix:
+            msg.meta["__cmd"] = "music"
+
+        return "__cmd" in msg.meta 
     async def process_message(self, msg):
+        if msg.meta["__cmd"] == "video":
         data = await self.api.video.search(
             q=self.parse_message(msg, full_text=False)[1] or "anime.webm jojo",
             sort=5,
@@ -27,6 +47,25 @@ class VideoPlugin(CommandPlugin):
             'Приятного просмотра!',
             attachment=','.join(
                 f"video{vid['owner_id']}_{vid['id']}"
+                    for vid in data["items"]
+            )
+        )
+        if msg.meta["__cmd"] == "music":
+        data = await self.api.video.search(
+            q=self.parse_message(msg, full_text=False)[1] or "neta",
+            sort=5,
+            count=10,
+            adult=10,
+            offset= random.randint(1, 300)
+        )
+
+        if not data or not data.get("items"):
+            return await msg.answer("Я не могу получить песню!")
+
+        return await msg.answer(
+            'Приятного пролушивания!',
+            attachment=','.join(
+                f"audio{vid['owner_id']}_{vid['id']}"
                     for vid in data["items"]
             )
         )
