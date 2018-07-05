@@ -4,7 +4,7 @@ import random
 class VideoPlugin(BasePlugin):
     __slots__ = ("prefixes", "video_commands", "music_commands")
 
-    def __init__(self, video_commands=None, music_commands=None, prefixes=("!")):
+    def __init__(self, video_commands=None, music_commands=None, prefixes=()):
        """Answers with a message it received."""
 	
        super().__init__()
