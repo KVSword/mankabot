@@ -52,21 +52,21 @@ class VideoPlugin(CommandPlugin):
                )
            )
         if msg.meta["__cmd"] == "music":
-        data = await self.api.video.search(
-            q=self.parse_message(msg, full_text=False)[1] or "neta",
-            sort=5,
-            count=10,
-            adult=10,
-            offset= random.randint(1, 300)
-        )
+           data = await self.api.video.search(
+               q=self.parse_message(msg, full_text=False)[1] or "neta",
+               sort=5,
+               count=10,
+               adult=10,
+               offset= random.randint(1, 300)
+           )
 
-        if not data or not data.get("items"):
-            return await msg.answer("Я не могу получить песню!")
+           if not data or not data.get("items"):
+               return await msg.answer("Я не могу получить песню!")
 
-        return await msg.answer(
-            'Приятного пролушивания!',
-            attachment=','.join(
-                f"audio{vid['owner_id']}_{vid['id']}"
-                    for vid in data["items"]
-            )
-        )
+           return await msg.answer(
+               'Приятного пролушивания!',
+               attachment=','.join(
+                   f"audio{vid['owner_id']}_{vid['id']}"
+                       for vid in data["items"]
+               )
+           )
