@@ -13,7 +13,7 @@ class VideoPlugin(BasePlugin):
        self.video_commands = video_commands or ["видео"]
        self.music_commands = music_commands or ["музыка"]
 	
-       self.description = ["разное", f"{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.music_commands[1]} - поиск музыки", "\n" ]
+       self.description = ["видео", "{self.video_commands[0]} - поиск видео", "\n" "музыка", "{self.music_commands[1]} - поиск музыки"]
 	
     async def check_messages(self, msg):
         current_text = msg.text
