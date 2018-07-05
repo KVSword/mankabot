@@ -11,9 +11,9 @@ class VideoPlugin(BasePlugin):
 	
        self.prefixes = prefixes
        self.video_command = video_command or ["видео", "вид"]
-       self.music_command = music_command or ["музыка", "музык"]
+       self.music_command = music_command or ["музыка", "муз"]
 	
-       self.description = ["видео", f"{self.prefixes[0]}{self.video_commands[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_commands[1]} - поиск музыки", "\n" ]
+       self.description = ["видео", f"{self.prefixes[0]}{self.video_command[0]} - поиск видео", "\n" "музыка", f"{self.prefixes[1]}{self.music_command[1]} - поиск музыки", "\n" ]
 	
     async def check_messages(self, msg):
         current_text = msg.text
